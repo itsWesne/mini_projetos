@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from entrada_do_usuario import calculo_imc, set_float
+from entrada_do_usuario import calculo_imc, set_float, show_more_infos
 
 # Configuração das linhas e layout
 sg.theme('BlueMono')
@@ -18,15 +18,15 @@ row_diagnostic = [
 ]
 # Informações adicionais
 row_more_infos = [
-    [sg.Text('PESO IDEAL:')],
-    [sg.Text('QTS. KG ACIMA OU ABAIXO: ')],
+    [sg.Text('', key='grau_imc')],
+    [sg.Text(' ')],
     [sg.Text(' ')]
 ]
 # Exibição das linhas\layout
 layout = [
     [sg.Frame('INFOS', layout=row_infos, size=(250, 100))],
     [sg.Frame('DIAGNOSTICO', layout=row_diagnostic, size=(250, 50))],
-    [sg.Frame('INFORMAÇÕES ADICIONAIS', layout=row_more_infos, size=(250, 100))]
+    [sg.Frame('INFORMAÇÕES ADICIONAIS', layout=row_more_infos, size=(250, 110))]
 ]
 
 # Criação da janela
@@ -46,13 +46,15 @@ while True:
         values['altura_input'] = set_float(values['altura_input'])
         values['peso_input'] = set_float(values['peso_input'])
 
-        """Chama o calculo do IMC e exibe no campo do IMC"""
+        """Chama o calculo do IMC e exibe no campo do IMC | Exibe informações adicionais sobre o IMC"""
         if type(values['altura_input']) == float == type(values['peso_input']):
-            resultado_imc = calculo_imc(values['altura_input'], values['peso_input'])
+            resultado_imc = set_float(calculo_imc(values['altura_input'], values['peso_input']))
             window.refresh()
             window.find_element('resultado_imc').update(resultado_imc, text_color='black')
+            window.find_element('grau_imc').update(show_more_infos(resultado_imc))
         else:
             window.refresh()
             window.find_element('resultado_imc').update(value='valor invalido', text_color='red')
+            window.find_element('grau_imc').update('')
 
 window.close()
