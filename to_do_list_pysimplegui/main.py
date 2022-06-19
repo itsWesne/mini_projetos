@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 
+
 #   Criação do layout
 def window_layout():
     sg.theme('Black')
@@ -13,6 +14,7 @@ def window_layout():
 
     return sg.Window('To do list', layout=layout, finalize=True)
 
+
 #   Criar janela
 window = window_layout()
 
@@ -22,7 +24,7 @@ while True:
     if event == sg.WINDOW_CLOSED:
         break
     elif event == 'New Task':
-        window.extend_layout(window['container'],[[sg.Input(''), sg.Checkbox('')]])
+        window.extend_layout(window['container'], [[sg.Input(''), sg.Checkbox('')]])
     elif event == 'Reset':
         window.close()
         window = window_layout()
