@@ -12,7 +12,7 @@ def window_layout():
         [sg.Button('New Task'), sg.Button('Reset')]
     ]
 
-    return sg.Window('To do list', layout=layout, finalize=True)
+    return sg.Window('To do list', layout=layout, finalize=True, alpha_channel=.8, grab_anywhere=True,  resizable=True)
 
 
 #   Criar janela
