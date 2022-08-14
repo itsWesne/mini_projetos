@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 from wlan_config import find_wlan, wifi_fiveghz, wifi_twoghz
+from wan_config import find_wan, pon_wan, ppp_settings, port_mapping
 from time import sleep
 
 # Conexão com o webdriver
@@ -25,6 +26,10 @@ sleep(1)
 # wifi_twoghz(driver, By, Select)
 
 # Configuração WAN
+find_wan(driver, By)
+pon_wan(driver, By, Select)
+ppp_settings(driver, By)
+port_mapping(driver, By)
 
 
 
