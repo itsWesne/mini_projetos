@@ -10,7 +10,7 @@ wan_settings = [
     [sg.Text('TYPE:'), sg.Combo(default_value='PPPoe', button_arrow_color='DarkGrey', values=('PPPoe', 'Bridge'), size=(10, 2)), sg.Push()],
     [sg.Text('VLAN:'), sg.Input(default_text='2800', size=(12, 1)), sg.Push()],
     [sg.Text('PPPoe LOGIN:', size=(13, 1)), sg.Input(size=(15, 1)), sg.Push()],
-    [sg.Text('PASSWORD:', size=(13, 1)), sg.Input(size=(15, 1), default_text='102030'), sg.Push()],
+    [sg.Text('PASSWORD:', size=(13, 1)), sg.Input(size=(15, 1), default_text='123'), sg.Push()],
     [sg.Text('ENABLE LAN PORTS:')],
     [sg.Checkbox('LAN1', default=True), sg.Checkbox('LAN2', default=True), sg.Checkbox('LAN3', default=True), sg.Checkbox('LAN4', default=True)]
 ]

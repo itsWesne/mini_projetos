@@ -2,6 +2,13 @@ def find_wan(driver, By):
     driver.find_element(By.XPATH, '//*[@id="nav"]/li[4]/a').click()
 
 
+def apply_changes(driver, By):
+    # Aplicando mudanças
+    driver.find_element(By.ID, 'apply').click()
+    # Reset de frame
+    driver.switch_to.default_content()
+
+
 def pon_wan(driver, By, Select):
     vlan = '2800'
     # Trocar o frame
@@ -20,6 +27,7 @@ def ppp_settings(driver, By):
     # PPP Settings
     driver.find_element(By.NAME, 'pppUserName').clear()
     driver.find_element(By.NAME, 'pppUserName').send_keys(username)
+    driver.find_element(By.NAME, 'pppPassword').clear()
     driver.find_element(By.NAME, 'pppPassword').send_keys(password)
 
 
@@ -34,8 +42,8 @@ def port_mapping(driver, By):
     lan_2.click()
     lan_3.click()
     lan_4.click()
-    # Aplicando mudanças
-    driver.find_element(By.ID, 'apply').click()
+    # Aplicar mudanças
+    apply_changes(driver, By)
 
 
 
