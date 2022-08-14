@@ -1,0 +1,42 @@
+→ Conectar ao WebDriver OK
+
+→ Abrir a página Web com o Ip escolhido/default OK
+
+→ Logar na ONU com usuario e senha ok
+	→ admin / admin
+
+→ Ir até WLAN // Configuração dos Wi-Fis OK
+	→ Localizar SSID e alterar o nome do 5G e aplicar as mudanças. OK
+		→ Acessar o menu lateral e acessar security. OK
+			→ Localizar Encryption e selecionar WPA2 Mixed. OK
+				→ Localizar Pre-Shared Key → inserir a senha desejada e aplicar.OK
+	→ Acessar segundo menu lateral (wlan1(2.4)) OK
+		→ Localizar SSID e alterar o nome do 2.4G e aplicar as mudanças.OK
+			→ Acessar o menu lateral e acessar security. OK
+				→ Localizar Encryption e selecionar WPA2 Mixed.OK
+				→ Localizar Pre-Shared Key → inserir a senha desejada e aplicar. OK
+→ Ir até WAN
+	→ Localizar vlan ID, e inserir a Vlan
+	→ Locallizar Channel Mode e alterar para PPPoe
+	→ Localizar UserName e inserir o PPPoeLogin
+	→ Localizar Password e inserir o PPPoEPass
+	→ Localizar as CheckBocks 'Lan_1,Lan_2,Lan_3,Lan_4' e ativa-las
+	→ Aplicar mudanças
+
+→ Ir até Services
+	→ Acessar Upnp no menu lateral
+	→ Localizar UPnP na tela e alterar o Radio Button para Enable
+	→ Aplicar mudanças
+
+→ Ir até advanced
+	→ Acessar Remote Acess no menu lateral
+	→ Localizar a checkbox wan na linha do Ping e deixa-la enable
+	→ Aplicar mudanças
+	
+→ Ir até Admin
+	→ Acessar o menu lateral 'PassWord'
+	→ Localizar 'Old password' e inserir 'admin'
+	→ Localizar New Password e Confirmed Password e inserir a senha nova
+	→ Aplicar Mudanças
+
+		

@@ -42,7 +42,7 @@ layout = [
 ]
 
 
-window = sg.Window('STAVIX AUTO CONFIG', layout)
+window = sg.Window('STAVIX AUTO CONFIG', layout, grab_anywhere=True, alpha_channel=0.8)
 while True:
     event, values = window.read()
     if event == sg.WINDOW_CLOSED:
