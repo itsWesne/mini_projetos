@@ -2,9 +2,9 @@ def find_admin(driver, By):
     driver.find_element(By.XPATH, '//*[@id="nav"]/li[9]/a').click()
 
 
-def password_config(driver, By):
-    oldpass = 'admin'
-    newpass = 'redefibra2016'
+def password_config(driver, By, oldpassword, newpassword):
+    oldpass = oldpassword
+    newpass = newpassword
 
     # Acessando configuração de senha
     driver.find_element(By.LINK_TEXT, 'Password').click()

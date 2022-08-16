@@ -9,21 +9,21 @@ def apply_changes(driver, By):
     driver.switch_to.default_content()
 
 
-def pon_wan(driver, By, Select):
-    vlan = '2800'
+def pon_wan(driver, By, Select, vlan):
+    vl = vlan
     # Trocar o frame
     driver.switch_to.frame(driver.find_element(By.ID, 'contentIframe'))
     # VLAN ID
     driver.find_element(By.NAME, 'vid').clear()
-    driver.find_element(By.NAME, 'vid').send_keys(vlan)
+    driver.find_element(By.NAME, 'vid').send_keys(vl)
     # Channel Mode (PPPoE)
     select = Select(driver.find_element(By.NAME, 'adslConnectionMode'))
     select.select_by_visible_text('PPPoE')
 
 
-def ppp_settings(driver, By):
-    username = 'itswesne'
-    password = '102030'
+def ppp_settings(driver, By, user, ppppass):
+    username = user
+    password = ppppass
     # PPP Settings
     driver.find_element(By.NAME, 'pppUserName').clear()
     driver.find_element(By.NAME, 'pppUserName').send_keys(username)
@@ -31,17 +31,21 @@ def ppp_settings(driver, By):
     driver.find_element(By.NAME, 'pppPassword').send_keys(password)
 
 
-def port_mapping(driver, By):
+def port_mapping(driver, By, lan1, lan2, lan3, lan4):
     # Checkboxs das portas
     lan_1 = driver.find_element(By.XPATH, '//*[@id="tbl_pmap"]/tbody/tr[2]/td[1]/input')
     lan_2 = driver.find_element(By.XPATH, '//*[@id="tbl_pmap"]/tbody/tr[2]/td[2]/input')
     lan_3 = driver.find_element(By.XPATH, '//*[@id="tbl_pmap"]/tbody/tr[3]/td[1]/input')
     lan_4 = driver.find_element(By.XPATH, '//*[@id="tbl_pmap"]/tbody/tr[3]/td[2]/input')
     # Habilitando portas
-    lan_1.click()
-    lan_2.click()
-    lan_3.click()
-    lan_4.click()
+    if lan1:
+        lan_1.click()
+    if lan2:
+        lan_2.click()
+    if lan3:
+        lan_3.click()
+    if lan4:
+        lan_4.click()
     # Aplicar mudanças
     apply_changes(driver, By)
 
