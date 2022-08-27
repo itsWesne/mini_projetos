@@ -11,6 +11,7 @@ from admin_config import find_admin, password_config
 
 
 # Conexão com o webdriver.
+
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 driver = webdriver.Chrome(chrome_options=options)
@@ -23,8 +24,9 @@ def ip_access(ip_url):
 
 def login():
     # ‘Login’ na ONU com usuario e senha
-    driver.find_element(By.NAME, 'username').send_keys('admin' + Keys.TAB)
-    driver.find_element(By.NAME, 'password').send_keys('admin' + Keys.ENTER)
+    if driver.title == 'Login':
+        driver.find_element(By.NAME, 'username').send_keys('admin' + Keys.TAB)
+        driver.find_element(By.NAME, 'password').send_keys('admin' + Keys.ENTER)
 
 
 def wifi_config(wname2, wpass2, wname5, wpass5):

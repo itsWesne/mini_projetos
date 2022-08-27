@@ -27,14 +27,14 @@ def config_wifi(driver, By, Select, wifi_name, wifi_pass):
 
 # CONFIGURAÇÃO REDE 5.8
 def wifi_fiveghz(driver, By, Select, wname, wpass):
-    wifi_name = wname
+    wifi_name = f'{wname}(5G)'
     wifi_pass = wpass
     config_wifi(driver, By, Select, wifi_name, wifi_pass)
 
 
 # CONFIGURAÇÃO REDE 2.4
 def wifi_twoghz(driver, By, Select, wname, wpass):
-    wifi_name = wname
+    wifi_name = f'{wname}(2.4G)'
     wifi_pass = wpass
     driver.find_element(By.LINK_TEXT, 'wlan1 (2.4GHz)').click()
     config_wifi(driver, By, Select, wifi_name, wifi_pass)
