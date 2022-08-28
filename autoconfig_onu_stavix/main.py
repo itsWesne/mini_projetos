@@ -44,18 +44,27 @@ layout = [
     [sg.Frame('SERVICES', layout=services), sg.Frame('OTHERS', layout=others), sg.Button('CONFIGURAR')]
 ]
 
+# Estilização da janela
 window = sg.Window('STAVIX AUTO CONFIG', layout, grab_anywhere=True, alpha_channel=0.9)
 
+# Exibição da ‘interface’ & leitura das interações
+
 while True:
+    # Pegar valores das entradas e ações ocorridas
     event, values = window.read()
+
+    # Envio das configurações
     if event == 'CONFIGURAR':
-        window.set_title(title='CONFIGURANDO AGUARDE!')
-        window.set_alpha(0.5)
+        # Verifica campo em brancos
         if len(str(values['pppoe_user'])) and len(str(values['wifi_2.4_name'])) and len(
                 str(values['wifi_5_name'])) and len(str(values['wifi_2.4_pass'])) and len(
                 str(values['wifi_5_pass'])) > 0:
+            # Verifica simbolos não permitidos e tamanho da senha
             if '*' not in values['wifi_2.4_pass'] and values['wifi_5_pass']:
                 if len(values['wifi_2.4_pass']) and len(values['wifi_5_pass']) >= 8:
+                    # Começa a automação
+                    window.set_title(title='CONFIGURANDO AGUARDE!')
+                    window.set_alpha(0.5)
                     # window.hide()
                     sg.popup_auto_close('CONFIGURANDO AGUARDE', no_titlebar=True)
 
