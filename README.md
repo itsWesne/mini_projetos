@@ -17,3 +17,11 @@ Utilizando Python e Py Simple Gui
 ![image](https://user-images.githubusercontent.com/106451416/174497132-517d25e1-3710-4b13-aed5-111fd649cc95.png)
 
 
+
+<h1> Interface para configuração automatizada de ONU's STAVIX </h1>
+
+Um projeto desenvolvido em Python utilizando Selenium, que automatiza a configuração de ONU's STAVIX através de Web Scrapping da pagina de configuração.
+Através de uma interface visual construida utilizando PySimpleGui com informações pré-colocadas para agilizar na configuração do equipamento.
+
+![image](https://user-images.githubusercontent.com/106451416/187086716-c95a8e17-b3c3-44cf-b8e8-ee0611ce0388.png)
+
